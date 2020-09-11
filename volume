@@ -1,0 +1,19 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+    1) setsid -f "$TERM" -e pulsemixer;;
+esac
+
+VOL="$(pamixer --get-volume)"
+
+[ $(pamixer --get-mute) = true ] && echo "🔇 0%"&& exit
+
+if [ "$VOL" -lt "30" ]; then
+	ICON="🔈"
+elif [ "$VOL" -lt "70" ]; then
+	ICON="🔉"
+else
+	ICON="🔊"
+fi
+
+echo "[$ICON$VOL%]"

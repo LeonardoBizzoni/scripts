@@ -1,0 +1,12 @@
+#!/bin/sh
+
+curl wttr.in/Melegnano > ~/Docs/.weatherReport
+
+lowhigh=$(sed '13q;d' ~/Docs/.weatherReport | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " 🥶" $1 "°","🌞" $2 "°"}')
+rain=$(sed '16q;d' ~/Docs/.weatherReport | grep -wo "[0-9]*%" | sort -rn | sed "s/^/☔/g;1q" | tr -d '\n')
+
+case $BLOCK_BUTTON in
+    1) setsid -f "alacritty" -e less -Srf ~/Docs/.weatherReport
+esac
+
+echo " [$rain $lowhigh]"
