@@ -1,0 +1,9 @@
+#!/bin/bash
+
+pgrep -x dmenu && exit
+
+umountableAndroid=$(simple-mtpfs -l)
+name=$(echo "$umountableAndroid" | dmenu -h 27 -p "Unmount which android?" | awk '{print $2}')
+
+fusermount -u ~/"$name"
+rmdir ~/"$name"
