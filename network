@@ -1,3 +1,0 @@
-#!/bin/sh
-
-echo "[📶$(nmcli device wifi show | grep SSID | cut -f 2 -d " ")]"

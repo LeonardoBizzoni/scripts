@@ -1,5 +1,0 @@
-#!/bin/sh
-
-pack="$(pacman -Quu | wc -l)"
-
-echo "📦$pack"
