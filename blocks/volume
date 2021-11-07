@@ -1,9 +1,0 @@
-#!/bin/sh
-
-case $BLOCK_BUTTON in
-    1) setsid -f "st" -e pulsemixer;;
-esac
-
-[ $(pamixer --get-mute) = true ] && echo " MUTE"
-
-echo " VOL:$(pamixer --get-volume)%"

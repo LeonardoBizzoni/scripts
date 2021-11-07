@@ -1,7 +1,0 @@
-#!/bin/sh
-
-case $BLOCK_BUTTON in
-    1) setsid -f "st" -e htop;;
-esac
-
-free -m | grep Mem | awk '{print "MEM:" $3 " MB"}'

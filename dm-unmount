@@ -1,0 +1,14 @@
+#!/bin/bash
+
+pgrep -x dmenu && exit
+source "${HOME}/.config/dmenu.conf"
+
+unmountableDrives=$(lsblk -lp | grep 'part' | awk '{print $1,"(" $4 ")"}')
+[["$unmountableDrives" == ""]] 2>/dev/null && exit 1
+
+drive=$(echo "$unmountableDrives" | ${dmenucmd} -p "Unmount which drive?" | awk '{print $1}')
+[[ "$drive" == "" ]] && exit 1
+
+name=$(lsblk| grep $(cut -d "/" -f3 <<< $drive) | awk '{print $7}')
+doas umount "$drive"
+doas rmdir "$name"

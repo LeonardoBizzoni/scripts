@@ -1,0 +1,20 @@
+#!/bin/bash
+
+pgrep -x dmenu && exit
+source "${HOME}/.config/dmenu.conf"
+
+mountableDrives=$(lsblk -lp | grep 'part $' | awk '{print $1,"(" $4 ")"}')
+[["$mountableDrives" == ""]] 2>/dev/null && exit 1
+
+drive=$(echo "$mountableDrives" | ${dmenucmd} -p "Which drive to mount: " | awk '{print $1}')
+[[ "$drive" == "" ]] && exit 1
+
+# if in /etc/fstab do that
+doas mount "$drive" 2>/dev/null && exit 0
+
+# if not in fstab
+name=$(blkid $drive | grep -o "LABEL.*" | cut -d'"' -f2)
+[[ "$name" == "" ]] && name=$(xxd -l 16 -c 16 -p < /dev/random)
+[[ ! -d /mnt/"$name" ]] && doas mkdir /mnt/"$name"
+
+doas mount "$drive" /mnt/"$name"

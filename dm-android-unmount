@@ -1,0 +1,10 @@
+#!/bin/bash
+
+pgrep -x dmenu && exit
+source "${HOME}/.config/dmenu.conf"
+
+umountableAndroid=$(simple-mtpfs -l)
+name=$(echo "$umountableAndroid" | ${dmenucmd} -p "Unmount which android?" | awk '{print $2}')
+
+doas fusermount -u /mnt/"$name"
+doas rmdir /mnt/"$name"

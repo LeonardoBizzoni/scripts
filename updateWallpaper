@@ -1,9 +1,0 @@
-#!/bin/bash
-
-WALL=$HOME/.config/wallpaper
-
-if [[ "$1" == "*.png" || "*.jpg" || "*jpeg" ]];then
-	[ -L $WALL ] && rm $WALL
-	ln -s "$1" $WALL
-	xwallpaper --zoom $WALL
-fi
