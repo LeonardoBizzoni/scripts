@@ -10,4 +10,4 @@ name=$(echo $chosen | awk '{print $2}')
 id=$(echo $chosen | cut -d : -f 1)
 
 doas mkdir /mnt/"$name"
-doas simple-mtpfs --device "$id" /mnt/"$name"
+doas simple-mtpfs -o allow_other --device "$id" /mnt/"$name"

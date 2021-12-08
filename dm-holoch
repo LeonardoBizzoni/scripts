@@ -3,7 +3,7 @@
 pgrep -x dmenu && exit
 source "${HOME}/.config/dmenu.conf"
 
-vtuber=$(echo -e "Airani\nAkirose\nAmelia\nAnya\nAqua\nAruran\nAstel\nAyame\nAzki\nBaelz\nBotan\nCalliope\nChoco\nFauna\nFlare\nFubuki\nGura\nHaachama\nHolostars\nIna\nHV Indonesia\nIrys\nIzuru\nKanata\nKiara\nKorone\nKronii\nLamy\nLuna\nMarine\nMatsuri\nMel\nMiko\nMio\nMiyabi\nMoona\nNanashi\nNene\nNoel\nOga\nOkayu\nOllie\nPavolia\nPekora\nPolka\nRikka\nRisu\nRoberu\nRoboco\nRushia\nSana\nShien\nShion\nSora\nSubaru\nSuisei\nTemma\nTowa\nWatame" | ${dmenucmd} -p "Which vtuber: ")
+vtuber=$(echo -e "Airani\nAkirose\nAmelia\nAnya\nAqua\nAruran\nAstel\nAyame\nAzki\nBaelz\nBotan\nCalliope\nChoco\nFauna\nFlare\nFubuki\nGura\nHaachama\nHolostars\nIna\nHV Indonesia\nIrys\nIzuru\nKanata\nKiara\nKorone\nKronii\nLamy\nLuna\nMarine\nMatsuri\nMel\nMiko\nMio\nMiyabi\nMoona\nNanashi\nNene\nNoel\nOga\nOkayu\nOllie\nPavolia\nPekora\nPolka\nRikka\nRisu\nRoberu\nRoboco\nRushia\nSana\nShien\nShion\nSora\nSubaru\nSuisei\nTemma\nTowa\nWatame\nLuplus\nLui\n\nKoyori\nChloe\nIroha\nLaplus" | ${dmenucmd} -p "Which vtuber: ")
 
 case $vtuber in
     Airani)
@@ -122,4 +122,14 @@ case $vtuber in
         $BROWSER "https://www.youtube.com/channel/UC1uv2Oq6kNxgATlCiez59hw";;
     Watame)
         $BROWSER "https://www.youtube.com/channel/UCqm3BQLlJfvkTsX_hvm0UmA";;
+    Laplus)
+        $BROWSER "https://www.youtube.com/channel/UCENwRMx5Yh42zWpzURebzTw";;
+    Lui)
+        $BROWSER "https://www.youtube.com/channel/UCs9_O1tRPMQTHQ-N_L6FU2g";;
+    Koyori)
+        $BROWSER "https://www.youtube.com/channel/UC6eWCld0KwmyHFbAqK3V-Rw";;
+    Chloe)
+        $BROWSER "https://www.youtube.com/channel/UCIBY1ollUsauvVi4hW4cumw";;
+    Iroha)
+        $BROWSER "https://www.youtube.com/channel/UC_vMYWcDjmfdpH6r4TTn1MQ";;
 esac
