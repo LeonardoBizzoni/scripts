@@ -1,5 +1,0 @@
-#!/bin/bash
-source $HOME/.config/dmenu.conf 
-
-ans=$(echo -e "yes\nno" | ${dmenucmd} -p "Do you want to power off the machine? ")
-[[ $ans == "yes" ]] && doas poweroff

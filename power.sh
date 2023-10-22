@@ -1,2 +1,0 @@
-betterlockscreen -l
-doas ZZZ
