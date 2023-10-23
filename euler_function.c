@@ -31,10 +31,10 @@ int main(int argc, char **argv) {
 
   printf("phi(%d) = %d\n", n, phi(n));
 
-  printf("Calcolare phi(n) == %d? [Y/n] ", n);
+  printf("Calcolare phi(n) == %d? [y/n] ", n);
   scanf("%c", &all_phi);
 
-  if (all_phi == 'y' || all_phi == '\n') {
+  if (all_phi == 'y') {
     printf("n = ");
 
     for (int i = 1, exit_cond = 0; exit_cond < 1000; i++) {
@@ -49,7 +49,8 @@ int main(int argc, char **argv) {
     printf("\n");
   }
 
-  printf("Calcolare phi(n) <= %d? [Y/n] ", n);
+  while(getchar() != '\n');
+  printf("Calcolare phi(n) <= %d? [y/n] ", n);
   scanf("%c", &all_phi);
 
   if (all_phi == 'y' || all_phi == '\n') {
