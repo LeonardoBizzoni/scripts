@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+cd ~/Dev/Website
+
+emacsclient -cna 'emacs' -e '(magit "~/Notes/Uni")'
+
+echo "Press enter to continue..."
+read $1
+
+git submodule update --init --recursive
+git submodule update --recursive --remote
+
+git add notes/org-roam.db static/notes
+git commit -m "$(date +%s)"
+git push
+
+ssh website
